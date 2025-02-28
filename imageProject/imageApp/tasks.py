@@ -8,7 +8,7 @@ from .models import ProductImage,ImageProcessingRequest
 
 
 
-@shared_task
+@shared_task(bind =True)
 def process_image(request_id):
     processing_request = ImageProcessingRequest.objects.get(request_id = request_id)
 
